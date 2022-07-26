@@ -35,7 +35,7 @@ def create_dataset(seed_nb):
     # put them all in a big matrix
     X = np.vstack([X1, X2, X3])  # (1500 X 2)
 
-    # generate the one-hot-encodings
+    # generate the one-hot-encodings output array
     labels = np.array([0]*500 + [1]*500 + [2]*500)  # (1500 X 1)
     Y = np.zeros((1500, 3))
     for i in range(1500):
@@ -93,7 +93,7 @@ for epoch in range(nb_epoch):
     print("Epoch {}/{} | cost function: {}".format(epoch, nb_epoch, J))
 
 # TESTING
-# Feedfoward
+# Feedforward
 Z1 = X_test.dot(W1) + b1  # (1500 X 5)
 A1 = sigmoid(Z1)  # (1500 X 5)
 

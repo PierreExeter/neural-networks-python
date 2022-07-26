@@ -17,20 +17,22 @@ def sigmoid_der(x):
     return sigmoid(x) * (1-sigmoid (x))
 
 
-# CREATE DATA SET
+# CREATE TRAIN AND TEST DATA SET
 np.random.seed(0)  
 X, y = datasets.make_moons(500, noise=0.10)  
 yy = y
 y = y.reshape(500, 1)
+X_test, y_test = datasets.make_moons(500, noise=0.10)  
+y_test = y_test.reshape(500, 1)
 
 # HYPERPARAMETERS
 wh = np.random.rand(len(X[0]), 4)  
 wo = np.random.rand(4, 1)  
-lr = 0.5
+alpha = 0.5  # learning rate
 nb_epoch = 5000
 error_list = []
 H = np.zeros((nb_epoch, 14))  # history
-m = X.shape[0]
+m = X.shape[0] # number of observations
 
 # TRAINING
 for epoch in range(nb_epoch):  
@@ -56,15 +58,15 @@ for epoch in range(nb_epoch):
     # 5. backpropagation between hidden and input layer
     dJ_dzo = dJ_dao * dao_dzo
     dzo_dah = wo
-    dJ_dah = np.dot(dJ_dzo , dzo_dah.T)
+    dJ_dah = np.dot(dJ_dzo, dzo_dah.T)
     dah_dzh = sigmoid_der(zh) 
     dzh_dwh = X
 
     dJ_wh = np.dot(dzh_dwh.T, dah_dzh * dJ_dah)  # chain rule
 
     # 6. update weights: gradient descent (only at the end)
-    wh -= lr * dJ_wh
-    wo -= lr * dJ_wo
+    wh -= alpha * dJ_wh
+    wo -= alpha * dJ_wo
 
     # 7. record history for plotting
     H[epoch, 0] = epoch
@@ -75,9 +77,6 @@ for epoch in range(nb_epoch):
     print("Epoch {}/{} | cost function: {}".format(epoch, nb_epoch, J.sum()))
 
 # TESTING
-X_test, y_test = datasets.make_moons(500, noise=0.10)  
-y_test = y_test.reshape(500, 1)
-
 zh = np.dot(X_test, wh)
 ah = sigmoid(zh)
 zo = np.dot(ah, wo)

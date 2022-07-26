@@ -16,15 +16,15 @@ def sigmoid_der(x):
 
 
 # CREATE DATA SET
-X = np.array([[0,1,0], [0,0,1], [1,0,0], [1,1,0], [1,1,1]])  
-y = np.array([[1,0,0,1,1]])  
-y = y.reshape(5,1)  
+X = np.array([[0, 1, 0], [0, 0, 1], [1, 0, 0], [1, 1, 0], [1, 1, 1]])  
+y = np.array([[1, 0, 0, 1, 1]])  
+y = y.reshape(5, 1)  
 
 # HYPERPARAMETERS
 np.random.seed(42)  
 weights = np.random.rand(3, 1)  
 bias = np.random.rand(1)  
-lr = 0.05        # learning rate
+alpha = 0.05        # learning rate
 nb_epoch = 20000
 H = np.zeros((nb_epoch, 6))  # history
 m = len(X)   # number of observations
@@ -46,11 +46,11 @@ for epoch in range(nb_epoch):
     dz_dw = X.T
 
     gradient_w = np.dot(dz_dw, da_dz*dJ_da)  # chain rule 
-    weights -= lr * gradient_w               # gradient descent
+    weights -= alpha*gradient_w               # gradient descent
 
     # 3. bias
     gradient_b = da_dz*dJ_da   # chain rule
-    bias -= lr*sum(gradient_b)  # gradient descent
+    bias -= alpha*sum(gradient_b)  # gradient descent
 
     # Record history for plotting
     H[epoch, 0] = epoch
@@ -83,12 +83,12 @@ plt.savefig('plots/1_bias_vs_epoch.png')
 plt.show()
 
 # TEST PHASE
-example1 = np.array([1, 0, 0])  
+example1 = np.array([1, 0, 1])  
 result1 = sigmoid(np.dot(example1, weights) + bias)  
 print(result1.round())
-print('A person who is smoking, not obese and does not exercise is classified as not diabetic.')
+print('A person who is smoking, not obese and practices some exercise is classified as not diabetic.')
 
-example2 = np.array([0, 1, 0])  
+example2 = np.array([0, 1, 1])  
 result2 = sigmoid(np.dot(example2, weights) + bias)  
 print(result2.round())
-print('A person who is not smoking, obese and does not exercise is classified as diabetic.')
+print('A person who is not smoking, obese and practices some exercise is classified as diabetic.')
