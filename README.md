@@ -10,43 +10,46 @@ pip install -r requirements.txt
 
 ## 1. Single Layer Perceptron
 
-Implementation of a simple neural network in pure Numpy. Please refer to [this article](https://www.datasparked.com/deep%20learning/Implement-a-neural-network-in-Python/) for more details.
+[blog post](https://www.datasparked.com/deep%20learning/Implement-a-neural-network-in-Python/) - [source code](./1_single_layer_perceptron/)
 
-![1_simple_NN_architecture](images/1_simple_NN_architecture.png)
+![1_simple_NN_architecture](./1_single_layer_perceptron/plots/1_simple_NN_architecture.png)
 
-```bash
-python 1_simple_NN.py
-```
+
 
 ## 2. Non-linear classification
 
-Perform non-linear classification with a neural network implemented in pure Numpy. Please refer to [this article](https://www.datasparked.com/deep%20learning/Non-linear-classification-with-neural-networks/) for more details.
+[blog post](https://www.datasparked.com/deep%20learning/Non-linear-classification-with-neural-networks/) - [source code](./2_non_linear_binary_classification/)
 
-![2_nonlinear_classification_architecture](images/2_nonlinear_classification_architecture.png)
+Perform non-linear classification with a neural network implemented in pure Numpy.
 
-```bash
-python 2_non_linear_binary_classification.py
-```
+![2_nonlinear_classification_architecture](./2_non_linear_binary_classification/plots/2_nonlinear_classification_architecture.png)
+
+
 
 ## 3. Multi-class classification
 
-Perform multi-class classification with a neural network implemented in pure Numpy. Please refer to [this article](datasparked.com/deep%20learning/Multi-class-classification-with-neural-networks/) for more details.
+[blog post](https://www.datasparked.com/deep%20learning/Multi-class-classification-with-neural-networks/) - [source code](./3_multiclass_classification/)
 
-![3_architecture_multiclass](images/3_architecture_multiclass.png)
 
-```bash
-python 3_multiclass_classification.py
-```
+Perform multi-class classification with a neural network implemented in pure Numpy.
 
-## 3. Non-linear classification with Pytorch
+![3_architecture_multiclass](./3_multiclass_classification/plots/3_architecture_multiclass.png)
 
-Non-linear classification with Pytorch. Please refer to [this article](datasparked.com/deep%20learning/Classification-with-Pytorch/) for more details.
 
-![3_architecture_multiclass](images/3_architecture_multiclass.png)
 
-```bash
-python 4_non_linear_classification_pytorch.py
-```
+## 4. Non-linear classification with Pytorch
 
+[blog post](https://www.datasparked.com/deep%20learning/Classification-with-Pytorch/) - [source code](./4_non_linear_classification_pytorch)
+
+Non-linear classification with Pytorch.
+
+
+## 5. Non-linear classification with Keras
+
+[blog post](https://www.datasparked.com/deep%20learning/Classification-with-Keras/) - [source code](./5_non_linear_classification_keras/)
+
+
+![loss_keras](./5_non_linear_classification_keras/plots_keras/loss_acc/loss_keras.gif)
+![classification_keras](./5_non_linear_classification_keras/plots_keras/model/model_keras.gif)
 
 
